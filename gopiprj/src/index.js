@@ -101,7 +101,7 @@ if(x>=10){
 
 //Function Component
 
-function Sample()
+/*function Sample()
 {
   return(
      <div>
@@ -110,4 +110,238 @@ function Sample()
   )
 }
 const r1=ReactDOM.createRoot(document.getElementById('root'))
-r1.render(<Sample/>) //rendering the Sample component
+r1.render(<Sample/>) //rendering the Sample component*/
+
+//Props using function to passing arguments
+
+/*function Sample(props)
+{
+    return(
+      <>
+      <h1>Hello{props.name}</h1>
+      <p>{props.age}</p>
+      </>
+    )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Sample name="mohamed" age="25"/>) //rendering the Sample component*/
+
+//React component in Component
+
+/*function Component1()
+{
+  return(
+    <div>
+      <h1>Welcome</h1>
+    </div>
+  )
+}
+function Component2()
+{
+  return(
+    <div>
+      <h1>Component2</h1>
+      <Component1/>
+    </div>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Component2/>) //rendering the Component2 component*/
+
+//constructor using super
+
+/*class Sample extends React.Component
+{
+   constructor()
+   {
+      super();
+      this.state={name:"azar",age:34}
+   }
+   render()
+   {
+    return(
+      <>
+         <h1>Hello{this.state.name}</h1>
+
+         <p>{this.state.age}</p>
+      </>
+      )
+   }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Sample/>) //rendering the Sample component*/
+
+//constructor using props
+
+/*class Sample extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state={name:this.props.name,age:this.props.age}
+  }
+  render()
+  {
+    return(
+      <>
+       <h1>Hello{this.state.name}</h1>
+       <p>{this.state.age}</p>
+      </>
+    )
+  }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Sample name="azar" age={34}/>) //rendering the Sample component*/
+
+//React State
+
+/*class Sample extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state={
+        brand:"Ford",
+        model:"Mustang",
+        year:2022,
+        color:"red"
+    }
+  }
+  render()
+  {
+    return(
+      <>
+       <h1>Brand:{this.state.brand}</h1>
+       <h1>Model:{this.state.model}</h1>
+       <h1>Year:{this.state.year}</h1>
+       <h1>Color:{this.state.color}</h1>
+      </>
+    )
+  }
+}
+
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Sample/>)*/
+
+//Changing State object
+
+/*class Sample extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state={
+      brand:"Ford",
+      model:"Mustang",
+      year:2022,
+      color:"red"
+      }
+      }
+      changeColor=()=>{
+        this.setState({color:"blue"})
+      }
+      render()
+      {
+        return(
+          
+          <>
+          <h1>Brand:{this.state.brand}</h1>
+          <h1>Model:{this.state.model}</h1>
+          <h1>Year:{this.state.year}</h1>
+          <h1>Color:{this.state.color}</h1>
+          <button onClick={this.changeColor}>Change Color</button>
+          </>
+        )
+        }
+}
+
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Sample/>)*/
+
+//React Event
+
+/*function Football()
+{
+   const shoot=()=>{
+    alert("Goal Scored")
+   }
+   return(
+    <>
+      
+      <h1>Football</h1>
+      <button onClick={shoot}>Shoot</button>
+    </>
+   )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Football/>)*/
+
+//React Event Argument passing
+
+/*function Football()
+{
+  const shoot=(year)=>{
+    alert(`Goal Scored ${year}`)
+    
+    }
+    return(
+      <>
+       <h1>Football</h1>
+       <button onClick={()=>shoot("2024")}>Shoot</button>
+      </>
+    )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Football/>)*/
+
+//Conditional Rendering
+
+/*function MissedGoal()
+{
+    return<h1>Missed</h1>
+}
+function MadeGoal()
+{
+    return<h1>Goal Made</h1>
+}
+
+function Football(props)
+{
+   const isGoal=props.isGoal;
+   if(isGoal)
+   {
+      return<MadeGoal/>
+   }
+   else
+   {
+    return<MissedGoal/>
+   }
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Football isGoal={Math.random()>0.5}/>)*/
+
+//React List using Map
+
+/*function Car(props)
+{
+   return<li>I am {props.b1}</li>
+}
+function Garage()
+{
+    const cars=["BMW","Audi","Toyota"];
+    return(
+      <>
+         <h1>Garage</h1>
+         <ul>
+          {cars.map((car)=><Car b1={car}/>)}
+         </ul>
+      </>
+    )
+}
+
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Garage/>)*/
+
+//React Hooks
+
+ 
