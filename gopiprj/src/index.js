@@ -344,4 +344,121 @@ r1.render(<Garage/>)*/
 
 //React Hooks
 
+import { useState, useEffect,useContext,createContext } from 'react';
+
+/*function Counter()
+{
+   const [count,setCount]=useState(0)
+   const [name,setName]=useState("mohamed")
+   return(
+    <>
+       <div>
+        <h1>Count: {count}</h1>
+        <h1>YourName::{name}</h1>
+        <button onClick={()=>setCount(count+1)}>Increment</button>
+        <button onClick={()=>setCount(count-1)}>Decrement</button>
+        <button onClick={()=>setCount(0)}>Reset</button>
+        <button onClick={()=>setName("azar")}>ChangeName</button>
+       </div>
+    </>
+   )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Counter/>)*/
+
+//React useEffect
+
+/*function ClickCounter()
+{
+  const [count,setCount]=useState(0)
+  useEffect(()=>{
+    //document.title="You clicked "+count+" times"
+    alert("You clicked"+count)
+    },[count])
+    return(
+      <>
+        <h1>Click Counter</h1>
+        <button onClick={()=>setCount(count+1)}>Click me</button>
+
+      </>
+    )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<ClickCounter/>)*/
+
+//React using without useContext
+
+/*function Component1()
+{
+    const [user,setUser]=useState("mohamed")
+    return(
+      <>
+       <h1>Component1</h1>
+       <h1>User:{user}</h1>
+       <button onClick={()=>setUser("azar")}>ChangeUser</button>
+       <Component2 user={user}/>
+      </>
+    )
+}
+function Component2(props)
+{
+  return(
+    <>
+      <h1>Component2</h1>
+      <h1>User:{props.user}</h1>
+    </>
+  )
+}
+const r1=ReactDOM.createRoot(document.getElementById('root'))
+r1.render(<Component1/>)*/
+
+//React with useContext
+
+const UserContext = React.createContext();
+
+function Component1() {
+  const [user, setUser] = React.useState("mohamed");
+
+  return (
+    <>
+      <h1>Component1</h1>
+      <h1>User: {user}</h1>
+      <button onClick={() => setUser("azar")}>Change User</button>
+      {/* Wraps the rest of the components with UserContext.Provider */}
+      <UserContext.Provider value={user}>
+        <Component2 />
+      </UserContext.Provider>
+    </>
+  );
+}
+
+
+function Component2() {
+  const user = React.useContext(UserContext);
+
+  return (
+    <>
+      <h1>Component2</h1>
+      <h1>User: {user}</h1>
+      <Component3 />
+    </>
+  );
+}
+
+function Component3() {
+  const user = React.useContext(UserContext);
+
+  return (
+    <>
+      <h1>Component3</h1>
+      <h1>User: {user}</h1>
+    </>
+  );
+}
+const r1 = ReactDOM.createRoot(document.getElementById("root"));
+r1.render(<Component1 />);
+
+
+
+
  
