@@ -414,7 +414,7 @@ r1.render(<Component1/>)*/
 
 //React with useContext
 
-const UserContext = React.createContext();
+/*const UserContext = React.createContext();
 
 function Component1() {
   const [user, setUser] = React.useState("mohamed");
@@ -424,16 +424,16 @@ function Component1() {
       <h1>Component1</h1>
       <h1>User: {user}</h1>
       <button onClick={() => setUser("azar")}>Change User</button>
-      {/* Wraps the rest of the components with UserContext.Provider */}
-      <UserContext.Provider value={user}>
-        <Component2 />
-      </UserContext.Provider>
-    </>
-  );
-}
+      {/* Wraps the rest of the components with UserContext.Provider */
+//       <UserContext.Provider value={user}>
+//         <Component2 />
+//       </UserContext.Provider>
+//     </>
+//   );
+// }
 
 
-function Component2() {
+/*function Component2() {
   const user = React.useContext(UserContext);
 
   return (
@@ -456,9 +456,34 @@ function Component3() {
   );
 }
 const r1 = ReactDOM.createRoot(document.getElementById("root"));
-r1.render(<Component1 />);
+r1.render(<Component1 />);*/
 
+//React Router Concepts
 
+import { BrowserRouter,Route,Routes } from "react-router-dom";
+import Layout from "./Pages/Layout";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import Blogs from "./Pages/Blogs";
+import NoPage from "./Pages/NoPage";
 
+export default function App() {
+  return (
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+       <Route index element={<Home />} />
+
+       <Route path="contact" element={<Contact />} />
+       <Route path="blogs" element={<Blogs />} />
+       <Route path="*" element={<NoPage />} />
+      </Route>
+    </Routes>
+    </BrowserRouter>
+  );
+}
+
+const r1 = ReactDOM.createRoot(document.getElementById("root"));
+r1.render(<App />);
 
  
